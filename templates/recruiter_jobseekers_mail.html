@@ -1,0 +1,60 @@
+{% extends 'recruiter_base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+h3{
+    text-align: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: vertical;
+}
+textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<div class="form-container" style="margin-bottom: 190px;">
+    <h3>Keyword Filter Mail Assistant</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <textarea name="content" id="" placeholder="Enter your text here"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock content %}

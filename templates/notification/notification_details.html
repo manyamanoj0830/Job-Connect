@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Details</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+a.back-button {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+a.back-button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+table td {
+    color: #333;
+    text-align: center;
+}
+
+.actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.actions a {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.actions a:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    table th, table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .actions a {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'view_notifications' %}" class="back-button">&#60; Back</a>
+    <table>
+        <tr>
+            <th>Title</th>
+            <td>{{ notification.title }}</td>
+        </tr>
+        <tr>
+            <th>Created Date</th>
+            <td>{{ notification.created_date }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ notification.description }}</td>
+        </tr>
+        <tr>
+            <th>Job Type</th>
+            <td>{{ notification.job_type }}</td>
+        </tr>
+        <tr>
+            <th>Salary Package</th>
+            <td>{{ notification.salary_package }} <b>LPA</b></td>
+        </tr>
+        <tr>
+            <th>Experience</th>
+            <td>{{ notification.experience }} <b>Years</b></td>
+        </tr>
+        <tr>
+            <th>Number of Postings</th>
+            <td>{{ notification.number_of_postings }}</td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>{{ notification.location }}</td>
+        </tr>
+        <tr>
+            <th>Skills</th>
+            <td>{{ notification.skills }}</td>
+        </tr>
+        <tr>
+            <th>Qualification</th>
+            <td>{{ notification.qualification }}</td>
+        </tr>
+        <tr>
+            <th>Date of Application</th>
+            <td>{{ notification.date }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            <div class="actions">
+                <a href="{{ notification.link }}" target="_blank">Apply</a>
+            </div></td>
+        </tr>
+    </table>
+
+    </div>
+</body>
+</html>

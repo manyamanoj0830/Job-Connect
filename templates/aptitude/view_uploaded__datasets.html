@@ -1,0 +1,74 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        } */
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+/* 
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        } */
+
+         strong {
+            color: #555;
+        }
+
+        ul ul {
+            margin-top: 5px;
+            margin-left: 20px;
+            list-style-type: none;
+        }
+
+        ul ul li {
+            margin-bottom: 5px;
+            padding: 0;
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        p {
+            margin-top: 10px;
+            color: #333;
+        } 
+    </style>
+<br>
+<h1>Uploaded Questions and Answers</h1>
+<ul style="list-style-type: none;padding: 0; margin-bottom: 477px; justify-content: center; text-align: center;">
+    {% for question in questions %}
+        <li style="margin-bottom: 15px;padding: 10px;background-color: #fff;border-radius: 8px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <strong>Question {{ forloop.counter }}:</strong> {{ question.Question }}
+            <ul style="list-style-type: none;padding: 0;">
+                {% for key, value in question.options.items %}
+                    <li style="margin-bottom: 15px;padding: 10px;background-color: #fff;border-radius: 8px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                        {{ key }}. {{ value }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <p><strong>Correct Answer:</strong> {{ question.correct_answer }}</p>
+        </li>
+    {% endfor %}
+</ul>
+<!-- <br><br>
+<br><br> -->
+{% endblock content %}
+

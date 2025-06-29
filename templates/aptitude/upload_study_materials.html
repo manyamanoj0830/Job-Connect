@@ -1,0 +1,107 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh;
+    margin: 0; */
+    /* background-color: #f9f9f9; */
+}
+
+form {
+    background: #fff;
+    padding: 20px 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 64px;
+    margin-left: 550px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+#category{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 95%;
+}
+form input[type="file"],
+/* form input[type="category"], */
+form input[type="text"],
+form select,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+#s_file{
+    width: 95%;
+}
+#text{
+    width: 95%;
+}
+label{
+    font-size:  medium;
+}
+</style>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- <label for="category">Select Category:</label>
+        <select name="category" id="category" required>
+            <option value="Aptitude">Aptitude</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="DotNet">DotNet</option>
+            <option value="Database">Database</option>
+        </select> -->
+
+        <label for="browser">Select Category: </label>
+        <input autocomplete="off" list="browsersvv" name="category" id="category">
+        <datalist id="browsersvv">
+          
+            {% for i in data %}
+            <option value="{{ i.file_category }}">
+            {% endfor %}
+         
+        </datalist>
+
+        <label for="file_category">Name Of The File:</label>
+        <input type="text" autocomplete="off" name="file_category" id="text">
+        <label for="s_file">Upload Study Material:</label>
+        <input type="file" name="s_file" id="s_file" required>
+        <button type="submit">Upload</button>
+    </form>
+{% endblock content %}

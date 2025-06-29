@@ -1,0 +1,71 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container" style="margin-top: 3%;">
+    <div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h4 class="panel-title text-center" style="color: black;">Add Notifications & Alerts</h4>
+        <hr>
+    </div>
+    <div class="form-container">
+        <form action="" method="post" class="container mt-5">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="Enter title">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Content</label>
+                <textarea id="description" name="description" class="form-control" rows="4" placeholder="Enter content"></textarea>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="job_type" class="form-label">Job Type</label>
+                    <input type="text" id="job_type" name="job_type" class="form-control" placeholder="Enter job type">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="experience" class="form-label">Experience (Years)</label>
+                    <input type="text" id="experience" name="experience" class="form-control" placeholder="Enter required experience">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="salary_package" class="form-label">Salary Package</label>
+                    <input type="number" id="salary_package" name="salary_package" class="form-control" placeholder="Enter salary package">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="number_of_postings" class="form-label">Number of Postings</label>
+                    <input type="text" id="number_of_postings" name="number_of_postings" class="form-control" placeholder="Enter number of postings">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="date" class="form-label">Last Date of Apply</label>
+                    <input type="date" id="date" name="date" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" id="location" name="location" class="form-control" placeholder="Enter job location">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="skills" class="form-label">Skills</label>
+                <textarea id="skills" name="skills" class="form-control" rows="2" placeholder="Enter required skills"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="qualifications" class="form-label">Qualifications</label>
+                <textarea id="qualifications" name="qualifications" class="form-control" rows="2" placeholder="Enter required qualifications"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="link" class="form-label">Apply Link</label>
+                <input type="url" id="link" name="link" class="form-control" placeholder="Enter application link">
+            </div>
+            <div class="d-grid" style="margin-bottom: 20px; margin-left: 500px;">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+    <br><br>
+{% endblock content %}

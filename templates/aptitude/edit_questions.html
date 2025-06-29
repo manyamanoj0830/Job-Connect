@@ -1,0 +1,116 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container container-margin" style="margin-top: 1%; margin-bottom: 5%;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title text-center" style="color: black;">Update Question no - {{ question.Question_num }}</h4>
+            <hr>
+        </div>
+  
+
+
+<div class="form-container" >
+
+<form action="/update_questions/{{ question.Question_num }}/" method="POST" style="margin-left: 150px;" class="container mt-6">
+    {% csrf_token %}
+    <div class="mb-6" style="margin-top: 40px; margin-left: 20px; margin-bottom: 50px;">
+        <textarea style="width: 70%; height: 100px;"
+            class="form-control" 
+            name="Question" 
+            placeholder="Enter Your Questions Here..." 
+            required 
+            >{{ question.Question }}</textarea>
+    </div>
+    <div class="row" style="margin-left: 10%;">
+        <label for="">A : &nbsp;</label>
+        <div class="mb-6 form-group">
+        <input 
+            type="text" 
+            value="{{ question.option_1 }}" 
+            name="option_1" 
+            class="form-control" 
+            placeholder="Option A" 
+            required>
+    </div>
+    <label for="" style="margin-left: 10%;">B : &nbsp;</label>
+    <div class="mb-6 form-group">
+    <input 
+            type="text" 
+            value="{{ question.option_2 }}" 
+            name="option_2" 
+            class="form-control" 
+            placeholder="Option B" 
+            required>
+    </div>
+</div>
+<div class="row" >
+    <label for="" style="margin-left: 11%;">C : &nbsp;</label>
+    <div class="mb-6 form-group">
+        <input 
+            type="text" 
+            value="{{ question.option_3 }}" 
+            name="option_3" 
+            class="form-control" 
+            placeholder="Option C" 
+            required>
+    </div>
+    <label for="" style="margin-left: 9%;">D : &nbsp;</label>
+    <div class="mb-6 form-group">
+        <input 
+            type="text" 
+            value="{{ question.option_4 }}" 
+            name="option_4" 
+            class="form-control" 
+            placeholder="Option D" 
+            required>
+    </div>
+</div>
+    <div class="mb-6" style="margin-left: 190px;">
+        <label for="" style="margin-right: 50px;">Correct Answer:</label>
+        <label for="answer_A">A</label> 
+        <input 
+            type="radio" 
+            name="answer" 
+            id="answer_A" 
+            value="A" 
+            {% if question.correct_answer == "A" %} checked {% endif %}>
+        
+        <label for="answer_B" style="margin-left: 40px;">B</label> 
+        <input 
+            type="radio" 
+            name="answer" 
+            id="answer_B" 
+            value="B" 
+            {% if question.correct_answer == "B" %} checked {% endif %}>
+        
+        <label for="answer_C" style="margin-left: 40px;">C</label> 
+        <input 
+            type="radio" 
+            name="answer" 
+            id="answer_C" 
+            value="C" 
+            {% if question.correct_answer == "C" %} checked {% endif %}>
+        
+        <label for="answer_D" style="margin-left: 40px;">D</label> 
+        <input 
+            type="radio" 
+            name="answer" 
+            id="answer_D" 
+            value="D" 
+            {% if question.correct_answer == "D" %} checked {% endif %}>
+    </div> 
+    <br>
+    <div style="margin-left: 330px;">
+        <input 
+            type="submit" 
+            value="Update" 
+            class="btn btn-success">
+    </div>
+</form>
+</div>
+</div>
+</div>
+
+{% endblock content %}

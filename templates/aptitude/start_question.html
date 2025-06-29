@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Home</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f9;
+        background-image: url(https://static.vecteezy.com/system/resources/previews/006/691/884/non_2x/blue-question-mark-background-with-text-space-quiz-symbol-vector.jpg);
+    }
+    form {
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    input[type="submit"] {
+        background-color: #007bff; 
+        color: #fff; 
+        border: 2px;
+        border-radius: 25px;
+        padding: 12px 24px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Start Test">
+    </form>
+</body>
+</html>

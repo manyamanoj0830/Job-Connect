@@ -1,0 +1,108 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+}
+.back-button a{
+    background-color: rgb(250, 222, 187);
+}
+.back-button a:hover{
+    background-color: rgb(177, 151, 119);
+    color: white;
+}
+.back-button:hover {
+    color: white;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+th, td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: rgb(250, 222, 187);
+    color:black;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #e9ecef;
+}
+a.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 4px;
+}
+a.action {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(89, 89, 218);
+}
+a.action:hover {
+    color: rgb(0, 0, 0);
+}
+</style>
+
+<div class="container" style="margin-top: 3%;">
+    <div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h4 class="panel-title text-center" style="color: black;">Manage Questions & Answers</h4>
+        <hr>
+    </div>
+<div class="form-container">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Question no.</th>
+                <th>Questions</th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>Correct Answer</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in questions %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <!-- <td>{{ i.Question_num }}</td> -->
+                <td>{{ i.Question }}</td>
+                <td>{{ i.option_1 }}</td>
+                <td>{{ i.option_2 }}</td>
+                <td>{{ i.option_3 }}</td>
+                <td>{{ i.option_4 }}</td>
+                <td>{{ i.correct_answer }}</td>
+                <td><a href="/edit_questions/{{ i.Question_num }}/" class="action">Edit</a></td>
+                <td><a href="/delete_questions/{{ i.Question_num }}/" class="action">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
