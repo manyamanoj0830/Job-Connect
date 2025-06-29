@@ -10,8 +10,8 @@
 - Admin panel (optional)
 
 ## Tech Stack
-- **Frontend**: HTML, CSS, JavaScript (or React, if used)
-- **Backend**: Python (Django/Flask) or Java/PHP/.NET
+- **Frontend**: HTML, CSS, JavaScript 
+- **Backend**: Python (Django/Flask)
 - **Database**: MySQL or SQLite
 
 ## How to Run
